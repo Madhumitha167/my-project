@@ -54,6 +54,23 @@ jobs:
           else
             echo "kubectl is installed"
           fi
+      - name: Install kops
+        run: |
+           curl -LO "https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64"
+
+           +x kops-linux-amd64
+
+           sudo mv kops-linux-amd64 /usr/local/bin/kops
+      - name: Check if kops installed
+        run: |
+          if ! command -v kops; then
+            echo "kops not installed"
+            exit 1
+          else
+            echo "kops is installed"
+          fi
+            
+
     # Version of kubect   version: # default is latest
     
       
