@@ -46,8 +46,14 @@ jobs:
         uses: Azure/setup-kubectl@v3
         with:
           version: v1.27.4
-      - name: EKS on Fargate
-        uses: aws-actions/amazon-eks-fargate@v0.1.1
+      - name: Check if kubectl is installed
+        run: |
+          if ! command -v kubectl; then
+            echo "kubectl is not installed"
+            exit 1
+          else
+            echo "kubectl is installed"
+          fi
     # Version of kubect   version: # default is latest
     
       
