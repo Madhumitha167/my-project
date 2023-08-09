@@ -47,7 +47,7 @@ jobs:
          with:
             aws-access-key-id: AKIAVADJOLAG34NNDJDW
             aws-secret-access-key: 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
-            aws-region: us-southeast-1
+            aws-region: ap-southeast-1
       
   deploy:
       runs-on: ubuntu-latest
