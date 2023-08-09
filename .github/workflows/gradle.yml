@@ -39,6 +39,10 @@ jobs:
       run: |
         docker build -t madhu1607/javagradle:latest .
         docker push madhu1607/javagradle:latest
+  aws-configure:
+    - name: configuring aws
+      
+        
   deploy:
       runs-on: ubuntu-latest
       steps:
