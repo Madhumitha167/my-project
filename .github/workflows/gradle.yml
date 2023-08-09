@@ -39,10 +39,16 @@ jobs:
       run: |
         docker build -t madhu1607/javagradle:latest .
         docker push madhu1607/javagradle:latest
-  aws-configure:
-    - name: configuring aws
+  creating-cluster:
+       runs-on: ubuntu-latest
+       steps:
+       - name: Set up AWS CLI
+         uses: aws-actions/configure-aws-credentials@v1
+         with:
+            aws-access-key-id: AKIAVADJOLAG34NNDJDW
+            aws-secret-access-key: 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
+            aws-region: us-southeast-1
       
-        
   deploy:
       runs-on: ubuntu-latest
       steps:
