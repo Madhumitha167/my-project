@@ -79,6 +79,8 @@ jobs:
         
       - name: list nodegroup
         run: aws eks list-nodegroups --cluster-name madhucluster
+      - name: list nodes
+        run: kubectl get nodes
          
          
       
