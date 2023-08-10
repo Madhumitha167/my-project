@@ -75,16 +75,10 @@ jobs:
           else
             echo "eksctl is installed"
           fi
-  cluster-creation:
-      runs-on: ubuntu-latest
-      needs: [installation, aws-configuration]
-      steps:
-        - name: creating cluster
-          run: |
-            eksctl create cluster --name test1 --version 1.17 --region ap-south-1 --nodegroup-name node123 --node-type t2.micro --nodes 2
+          
   kubernetes-deployment:
     runs-on: ubuntu-latest
-    needs: [build-java,cluster-creation]
+    needs: [build-java, aws-configuration]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
