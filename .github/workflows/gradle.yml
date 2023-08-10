@@ -79,9 +79,18 @@ jobs:
           else
             echo "kops is installed"
           fi
-      - name: Creating cluster
+      - name: eksctl-cmd
+        uses: robatwave/github-action-eksctl@0.1.2
+      - name: Check if eksctl installed
         run: |
-          kops create cluster newcluster 
+          if ! command -v eksctl; then
+            echo "eksctl not installed"
+            exit 1
+          else
+            echo "eksctl is installed"
+          fi
+        
+        
             
 
     # Version of kubect   version: # default is latest
