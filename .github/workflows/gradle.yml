@@ -81,7 +81,7 @@ jobs:
         run: aws eks list-nodegroups --cluster-name madhucluster
       - name: list nodes
         run: |
-           aws eks update-kubeconfig --name madhucluster --region ap-southeast-1
+           aws eks update-kubeconfig --name madhucluster --region ap-southeast-1 --role-arn arn:aws:iam::343818524685:role/eksctl-madhucluster-cluster-ServiceRole-1XB2C3M2IO2T8
            kubectl get nodes
          
          
