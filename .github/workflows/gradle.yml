@@ -80,7 +80,10 @@ jobs:
       - name: list nodegroup
         run: aws eks list-nodegroups --cluster-name madhucluster
       - name: list nodes
-        run: kubectl get nodes
+        run: |
+           aws eks update-kubeconfig --name madhucluster --region ap-southeast-1
+           kubectl get nodes
+         
          
          
       
