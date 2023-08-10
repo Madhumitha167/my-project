@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javagradleapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: javagradleapp
+  template:
+    metadata:
+      labels:
+        app: javagradleapp
+    spec:
+      containers:
+        - name: my-app-container
+          image: madhu1607/javagradle:latest  
+          ports:
+            - containerPort: 8080
