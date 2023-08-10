@@ -70,8 +70,7 @@ jobs:
 
       - name: Authenticate kubectl with EKS cluster
         run: |
-          aws eks update-kubeconfig --name madhucluster --region ap-southeast-1
-          kubectl config use-context madhucluster
+          aws eks update-kubeconfig --name madhucluster --region ap-southeast-1 --role-arn arn:aws:eks:ap-southeast-1:343818524685:cluster/madhucluster
           
       - name: Display Updated Kubeconfig
         run: cat ~/.kube/config
