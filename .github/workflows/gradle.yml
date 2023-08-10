@@ -74,7 +74,7 @@ jobs:
         run: cat ~/.kube/config
        
       - name: Apply Kubernetes Manifests
-        run: sudo kubectl apply -f deployment.yml
+        run: kubectl apply -f deployment.yml
          
       
            
