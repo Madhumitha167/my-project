@@ -66,7 +66,9 @@ jobs:
             
      # - name: to check if it configured
      #   run: aws s3 ls
-
+      - name: Added aws authentication to our user
+        run: kubectl apply -f aws-auth.yaml
+        
       - name: Authenticate kubectl with EKS cluster
         run: |
           aws eks update-kubeconfig --name madhucluster --region ap-southeast-1 --role-arn arn:aws:iam::343818524685:role/eksctl-madhucluster-cluster-ServiceRole-1XB2C3M2IO2T8
