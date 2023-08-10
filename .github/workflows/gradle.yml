@@ -78,7 +78,7 @@ jobs:
         run: aws eks describe-cluster --name madhucluster
         
       - name: list nodegroup
-        run: aws eks list-nodegroups --madhucluster
+        run: aws eks list-nodegroups --cluster-name madhucluster
          
          
       
