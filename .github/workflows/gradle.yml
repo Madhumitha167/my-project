@@ -77,11 +77,16 @@ jobs:
           fi
   cluster-creation:
       runs-on: ubuntu-latest
-      needs: installation
+      needs: [installation, aws-configuration]
       steps:
         - name: creating cluster
           run: |
             eksctl create cluster --name test1 --version 1.17 --region ap-south-1 --nodegroup-name node123 --node-type t2.micro --nodes 2
+  deployment:
+       runs-on: ubuntu-latest
+       needs: [installation, aws-configuration, cluster-creation]
+   
+         
       
            
       
