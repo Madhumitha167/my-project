@@ -74,8 +74,12 @@ jobs:
       - name: Display Updated Kubeconfig
         run: cat ~/.kube/config
         
-      - name: Apply Kubernetes Manifests
+      - name: Describe cluster
         run: aws eks describe-cluster --name madhucluster
+        
+      - name: list nodegroup
+        run: aws eks list-nodegroups --madhucluster
+         
          
       
            
