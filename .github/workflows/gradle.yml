@@ -75,10 +75,8 @@ jobs:
       - name: Display Updated Kubeconfig
         run: cat ~/.kube/config
         
-    
-       
-     # - name: Apply Kubernetes Manifests
-      #  run: kubectl get nodes
+      - name: Apply Kubernetes Manifests
+        run: kubectl get nodes
          
       
            
