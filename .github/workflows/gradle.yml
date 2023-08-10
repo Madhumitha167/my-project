@@ -70,11 +70,12 @@ jobs:
       - name: Configure kubectl
         run: |
           aws eks --region ap-southeast-1 update-kubeconfig --name madhucluster
+          kubectl get nodes
       - name: Display Updated Kubeconfig
         run: cat ~/.kube/config
        
-      - name: Apply Kubernetes Manifests
-        run: kubectl get nodes
+     # - name: Apply Kubernetes Manifests
+      #  run: kubectl get nodes
          
       
            
