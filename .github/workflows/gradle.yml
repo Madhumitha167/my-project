@@ -89,9 +89,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Apply Kubernetes Manifests
+      - name: Configure kubectl
         run: |
-          kubectl apply -f Deployment.yml
+          aws eks --region ap-southeast-1 update-kubeconfig --name madhucluster
+
+      - name: Apply Kubernetes Manifests
+        run: kubectl apply -f deployment.yml
          
       
            
