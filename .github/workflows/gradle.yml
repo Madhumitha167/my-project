@@ -83,7 +83,7 @@ jobs:
           aws eks --region ap-southeast-1 update-kubeconfig --name madhucluster
 
       - name: Apply Kubernetes Manifests
-        run: kubectl apply -f deployment.yml
+        run: sudo kubectl apply -f deployment.yml
          
       
            
