@@ -75,7 +75,7 @@ jobs:
         run: cat ~/.kube/config
         
       - name: Apply Kubernetes Manifests
-        run: kubectl get nodes
+        run: aws eks describe-cluster --name madhucluster
          
       
            
