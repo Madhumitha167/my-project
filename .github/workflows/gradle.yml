@@ -66,6 +66,9 @@ jobs:
       run: aws configure list --profile eks-user
       
     - name: Set AWS Profile
+      env:
+        AWS_STS_REGIONAL_ENDPOINTS: regional
+        AWS_PROFILE: eks-user
       run: |
            export AWS_PROFILE=eks-user
            kubectl apply -f deployment.yaml
