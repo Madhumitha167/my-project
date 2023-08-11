@@ -16,4 +16,4 @@ spec:
         - name: java-container
           image: madhu1607/javagradle:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 80
