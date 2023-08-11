@@ -57,7 +57,7 @@ jobs:
       
     - name: Authenticate kubectl with EKS cluster
       run: |
-          aws eks update-kubeconfig --name newcluster --region ap-southeast-1 
+          aws eks update-kubeconfig --name newcluster --region ap-southeast-1 --role-arn arn:aws:iam::343818524685:user/eks-user
             
     - name: deployment 
       run: |
