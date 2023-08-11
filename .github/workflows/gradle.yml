@@ -59,7 +59,7 @@ jobs:
       run: |
           aws eks update-kubeconfig --name newcluster --region ap-southeast-1 --role-arn arn:aws:iam::343818524685:role/final-eks
           cat ~/.kube/config
-          kubectl get nodes
+          aws sts get-caller-identity
           aws eks describe-cluster --name newcluster
             
     - name: deployment 
