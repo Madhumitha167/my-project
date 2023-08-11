@@ -62,10 +62,17 @@ jobs:
           aws sts get-caller-identity
           aws eks describe-cluster --name newcluster
             
-    - name: deployment 
-      run: |
-         kubectl apply -f deployment.yaml
-         kubectl apply -f service.yaml
+    -  name: deployment 
+       run: |
+           aws-configure 
+           uses: aws-actions/configure-aws-credentials@v1
+           with:
+             aws-access-key-id: AKIAVADJOLAGSNBL5RWP
+             aws-secret-access-key: 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
+             aws-region: ap-southeast-1 
+           kubectl apply -f deployment.yaml
+           kubectl apply -f service.yaml
+
          
       # kubectl apply -f aws-auth.yaml
          
