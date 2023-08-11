@@ -61,10 +61,9 @@ jobs:
           cat ~/.kube/config
           aws sts get-caller-identity
           aws eks describe-cluster --name newcluster
-            
+          
     - name: Set AWS Profile
-      run:  |
-           export AWS_PROFILE=default
+      run: export AWS_PROFILE=eks-user
            kubectl apply -f deployment.yaml
            kubectl apply -f service.yaml
 
