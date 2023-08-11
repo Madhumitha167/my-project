@@ -64,7 +64,6 @@ jobs:
           
     - name: Configure AWS CLI Profile
       run: |
-          mkdir -p $HOME/.aws
           echo "[profile eks-user]" >> $HOME/.aws/config
           echo "region = ap-southeast-1" >> $HOME/.aws/config
           echo "output = json" >> $HOME/.aws/config
