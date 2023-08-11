@@ -64,9 +64,10 @@ jobs:
             
     - name: deployment 
       run: |
-         kubectl apply -f aws-auth.yaml
          kubectl apply -f deployment.yaml
          kubectl apply -f service.yaml
+         
+      # kubectl apply -f aws-auth.yaml
          
      # - name: to check if it configured
      #   run: aws s3 ls
