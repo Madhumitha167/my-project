@@ -61,6 +61,7 @@ jobs:
           cat ~/.kube/config
           aws sts get-caller-identity
           aws eks describe-cluster --name newcluster
+          kubectl get nodes
           
     - name: Configure AWS CLI Profile
       run: |
