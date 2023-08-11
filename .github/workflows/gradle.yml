@@ -62,18 +62,16 @@ jobs:
           aws sts get-caller-identity
           aws eks describe-cluster --name newcluster
           
-    - name: Verify AWS Profile
-      run: aws configure list --profile eks-user
-      
-    - name: Set AWS Profile
-      env:
-        AWS_STS_REGIONAL_ENDPOINTS: regional
-        AWS_PROFILE: eks-user
+    - name: Configure AWS CLI Profile
       run: |
-           kubectl apply -f aws-auth.yaml
-           export AWS_PROFILE=eks-user
-           kubectl apply -f deployment.yaml
-           kubectl apply -f service.yaml
+          mkdir -p $HOME/.aws
+          echo "[profile eks-user]" >> $HOME/.aws/config
+          echo "region = ap-southeast-1" >> $HOME/.aws/config
+          echo "output = json" >> $HOME/.aws/config
+          kubectl apply -f aws-auth.yaml
+          export AWS_PROFILE=eks-user
+          kubectl apply -f deployment.yaml
+          kubectl apply -f service.yaml
 
       # kubectl apply -f aws-auth.yaml
          
