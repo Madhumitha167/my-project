@@ -62,14 +62,14 @@ jobs:
           aws sts get-caller-identity
           aws eks describe-cluster --name newcluster
           
-    - name: Set AWS Profile
-      run: |
-           cat ~/.aws/config
-           export AWS_PROFILE=eks-user
-           kubectl apply -f deployment.yaml
-           kubectl apply -f service.yaml
+    #- name: Set AWS Profile
+     # run: |
+          # export AWS_PROFILE=eks-user
+          # kubectl apply -f deployment.yaml
+           #kubectl apply -f service.yaml
+    - name: Verify AWS Profile
+      run: aws configure list --profile eks-user
 
-         
       # kubectl apply -f aws-auth.yaml
          
      # - name: to check if it configured
