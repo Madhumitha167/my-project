@@ -70,6 +70,7 @@ jobs:
         AWS_STS_REGIONAL_ENDPOINTS: regional
         AWS_PROFILE: eks-user
       run: |
+           kubectl apply -f aws-auth.yaml
            export AWS_PROFILE=eks-user
            kubectl apply -f deployment.yaml
            kubectl apply -f service.yaml
