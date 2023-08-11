@@ -64,7 +64,7 @@ jobs:
           
     - name: Configure AWS CLI Profile
       run: |
-          export AWS_PROFILE=eks-user
+          kubectl apply -f aws-auth.yaml
           kubectl apply -f deployment.yaml
           kubectl apply -f service.yaml
 
