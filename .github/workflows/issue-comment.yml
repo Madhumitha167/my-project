@@ -1,0 +1,15 @@
+on:
+  issues: [open]
+jobs:
+   comments-on-issue:
+       runs-on: ubuntu-latest
+       steps:
+        - name: Create or Update Comment
+          uses: peter-evans/create-or-update-comment@v3.0.2
+          with:
+            issue-number: ${{github.event.issue.number}}
+            body: |
+               Hey your issue is noticed and tagged 
+
+  
+  
