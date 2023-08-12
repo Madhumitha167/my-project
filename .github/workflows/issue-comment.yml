@@ -1,5 +1,6 @@
 on:
   issues: [open]
+  workflow_dispatch:
 jobs:
    comments-on-issue:
        runs-on: ubuntu-latest
