@@ -52,7 +52,9 @@ jobs:
         CLUSTER_NAME: ${{ env.GKE_CLUSTER }}
         ZONE_NAME: ${{ env.GKE_ZONE }}
       with:
-        args: apply -f deployments/
+        args: |
+          apply -f deployments.yml
+          apply -f service.yaml
         
             
 
