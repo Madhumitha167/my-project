@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GKE_CLUSTER: cluster-demo-1    # TODO: update to cluster name
+  GKE_CLUSTER: cluster-springboot  
   GKE_ZONE: us-central1-c 
 
 jobs:
@@ -39,75 +39,20 @@ jobs:
       run: |
         docker build -t madhu1607/javagradle:latest .
         docker push madhu1607/javagradle:latest
-  deploy:
-     runs-on: ubuntu-latest
-     needs: build
-     steps:  
-      - name: Kubectl tool installer
-        uses: Azure/setup-kubectl@v3
-        with:
-          version: v1.27.4
-      - name: Check if kubectl is installed
-        run: |
-          if ! command -v kubectl; then
-            echo "kubectl is not installed"
-            exit 1
-          else
-            echo "kubectl is installed"
-          fi
-      - name: aws-configure 
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-            aws-access-key-id: AKIAVADJOLAG73K5NQ6W
-            aws-secret-access-key: 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
-            aws-region: ap-southeast-1 
-      
-      - name: updating the config file
-        run: |
-          aws eks update-kubeconfig --name newcluster --region ap-southeast-1 --role-arn arn:aws:iam::343818524685:role/final-eks
-          cat ~/.kube/config
-          aws sts get-caller-identity
-          aws eks describe-cluster --name newcluster
-          kubectl get cluster
-          kubectl get nodes
-          
-      - name: Configure AWS CLI Profile
-        run: |
-          kubectl apply -f aws-auth.yaml
-          kubectl apply -f deployment.yaml
-          kubectl apply -f service.yaml
-
-      # kubectl apply -f aws-auth.yaml
-         
-     # - name: to check if it configured
-     #   run: aws s3 ls
-   # - name: Added aws authentication to our user
-    #  run: kubectl apply -f aws-auth.yaml
-        
-    #- name: Authenticate kubectl with EKS cluster
-    #  run: |
-        #  aws eks update-kubeconfig --name madhucluster --region ap-southeast-1 --role-arn arn:aws:iam::343818524685:role/eksctl-madhucluster-cluster-ServiceRole-1XB2C3M2IO2T8
-          
-    #- name: Display Updated Kubeconfig
-     # run: cat ~/.kube/config
-        
-    #- name: Describe cluster
-     # run: aws eks describe-cluster --name madhucluster
-        
-    #- name: list nodegroup
-    #  run: aws eks list-nodegroups --cluster-name madhucluster
-    #- name: list nodes
-     # run: |
-      #     aws eks update-kubeconfig --name madhucluster --region ap-southeast-1 --role-arn arn:aws:iam::343818524685:role/eksctl-madhucluster-cluster-ServiceRole-1XB2C3M2IO2T8
-       #    kubectl get nodes
-         
-         
-         
-      
-           
-      
-
-        
+  Deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: kubectl - Google Cloud GKE cluster.
+      uses: ameydev/gke-kubectl-action@master
+      env:
+        PROJECT_ID: ${{ env.PROJECT_ID }}
+        APPLICATION_CREDENTIALS: ${{ secrets.GKE_KEY }}
+        CLUSTER_NAME: ${{ env.GKE_CLUSTER }}
+        ZONE_NAME: ${{ env.GKE_ZONE }}
+      with:
+        args: apply -f deployments/
         
             
 
