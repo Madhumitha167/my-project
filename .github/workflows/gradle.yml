@@ -53,8 +53,8 @@ jobs:
         ZONE_NAME: ${{ env.GKE_ZONE }}
       with:
         args: |
-          apply -f Deployments.yaml
-          apply -f service.yaml
+          apply -f deployment.yml
+          apply -f service.yml
         
             
 
