@@ -51,28 +51,17 @@ jobs:
         APPLICATION_CREDENTIALS: ${{ secrets.GKE_KEY }}
         CLUSTER_NAME: ${{ env.GKE_CLUSTER }}
         ZONE_NAME: ${{ env.GKE_ZONE }}
-    - name: Kubectl tool installer
-      run: |
-        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-        chmod +x ./kubectl
-        sudo mv kubectl /usr/local/bin/kubectl
-        kubectl apply -f deployment.yml
-        kubectl apply -f service.yml
-     
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      #with:
-       # args: |
-        #  apply -f deployment.yml
-         # apply -f service.yml
+      with:
+        args: |
+          apply -f deployment.yml
+          apply -f service.yml
         
+      
+      
+      
+      
+      
+      
             
 
     
