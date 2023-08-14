@@ -9,6 +9,7 @@ on:
 env:
   GKE_CLUSTER: cluster-springboot  
   GKE_ZONE: us-central1-c 
+  GKE_KEY: ewogICJ0eXBlIjogInNlcnZpY2VfYWNjb3VudCIsCiAgInByb2plY3RfaWQiOiAibW9kaWZpZWQtbGVnYWN5LTM5NTgxNSIsCiAgInByaXZhdGVfa2V5X2lkIjogImU0MzQ1Njk2Njg5YzQwZDYwZjE2MmI4MzJjMjBlYWY4MjgzMzliMzAiLAogICJwcml2YXRlX2tleSI6ICItLS0tLUJFR0lOIFBSSVZBVEUgS0VZLS0tLS1cbk1JSUV2Z0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktnd2dnU2tBZ0VBQW9JQkFRRE5ydWlDbkJsVDltYm1cbmpmcTJZajFBcDhHMDRsQlQ2V2lWWVB1R0d4SUhqVnV5WU9MN2x4MDhIN252NTFTT2xGQjNLbzdFL0NKRDZtL0lcbmFFTitzOE5ncmFpUEljN25ob1BJRkJEMEQ2bUp2bWdRRDFZamtiQ1RTSWNKb2tUa3Q5cGpQbmFSNEJlTzBMYUNcblBJWVMrTkQ3enl0MHFGS3EzTG9IU0NHUkR1dkpNQU5tTkllRjVqc0FMdmovSjVFZjdqQ05xdTBsaENmY0hzbU5cblA0OVNzbGtDUXhJaVBmNDF2cXFmRm45cEdNTTFJbEZRQTJBZkp1N3JQa3hkb04xZGtRbTZ5NWpyK3RqeU4rNTVcbjNHczlVb1ErNzkwb0xacFVwTSt4SmlsYnp3eGR1WFpRR1A2MkdvVGRoTEdVVUZoVzN2dnNlZ2d6cUN4N1k1Vzdcbm0yK3ZzR3VkQWdNQkFBRUNnZ0VBSlgyckJIbWpGVDZkNFlzQ0pzSHY0OHZnUDFJY0xidG5GSWxsdDN0U05UMnpcbk4rZTRuLzdhdFpXYjNRcUh5MmhsNVY3RXdNdXJqRUVjaUlWV3ZpN1NuMW53Rmt6bGk2YWxlVEFOS2d0N3plOStcbnhPU2l3UitDZGNvNzBRbjZzRTBCMmVLdUZxZG42K0NIeitQcjFXUDBwZDJNa0hwSS9UdDREakU3NnhheTdFd0lcbkFNdGlkdGNhdG1nSmVCRTlWbTl6WlZFbEVjMG4zZ1ZmcFYxais5WXdRVFlnL21FZnRFczMwclJ6Z3NseVNZTm5cblBKVlg2YUVRejVPcmdBeVpZclFHUklxOW1TckpUWjNKWW1OVnpsSTlQSmJRY0Q0V25zQi8yZ21VZCs4QXE1T2xcblVOaUVDOUZ1SkxndTRwS0hIQVhNKzcrbEY4eWtCZlZkdnVEZkRPSDFLUUtCZ1FEM3NGZXFTSGxpUzRiOEpBWHlcblFKQ242SHd0OWtWZEg0dzFrVmhEN0dzbGhLUWlmWnFwczI3bXhrVzFLdmtGMm5rQndHUXZWZUg3QXJDYTUrWERcbnBXNnRpL21TQmovS2RUOXhlenFaUk8vMDNxOVAvcDdLM0xkMkpBZk9zWk5HeTBuZ0ExdGJjSU5UVEY5S3o4eVZcbnhvak1qeFY5WklUb2ErWW9yR0lpdGZtSDVRS0JnUURVbGJ4a1UycWQyNnQvNU9lR2V5OERMQkJDYUlTZndTaXBcbk4xc0JQd0RwMWxLd09HQWFDemIrbXRsL0xFSG9seWovVTVyVVlUUm1NclBUblcyZTlJVnBRbDYxTy9KcFZwcHhcbkZpQXB5YldDaENRdFhqalhPQXFHV3cyKzRMTHhab1RETU41NG43aWk1R0VoYkxqcDdMZ0pCbTBhQklyTjdLQVhcbklwZ2dKTEtwV1FLQmdRQ0JGNUtKT0o2eklXUW9FK3BaZVZjcmZCc0VwWDgvYXNyYnZIWUJhTDNyWHZkZzFvLytcbmRIdVBvYlVCR0hXVG5HdEhBMnZ6MDlJa3ppRVhpMWVRSWEvT21jNm9VY043bEtKTlZnbVRpbjk1NDNvQnVsWXVcbnF0eWZvV1hFVDM3UC9mSHg1QzRBT1dMb3pqdzROSmVQVkZ0R0tpanNJckMycGszZDB3S096c05RRlFLQmdRRFFcbi8xRVMxVXU1WEpEMEVPaHFOMHNWOUVrYjhNT0tpQTFncDVKcDNEWWFydUhtYTlaWFpIVXh4SzFWc1A0dkhBVnJcbldCZWMrdC9ZSmJyVHJpOXFtZjFiYWF2UXc5bmtKQWQ4YklNOGNobG44bC9hMW9wTlZNUk1LTktQdVR0VHh6VjRcbjdOK2JlWE85ZVlmZ281SDhNUVVSb21hNnNJS0NSME53MjByeU53SUxLUUtCZ0VvK0hsMWlnSWJqbDdtdzlwWHRcbkxObTJDalVYanpHZU5WMlV4WVhPb3lSR1pDU0syTXpTZ1pFRXVVUlZ3U0JudkNnUlVWL3FZNXBtbnlkZk44VDBcblJXeFFPeWhqMGR5eGJYQ0c4Vjlmemx1M2cyRTEvZFlOQi8ya2U5cEQrYWNrQzM2Y0hTOWwvNHkxVnZIVHdpam5cbnRHdXlKbG9td1ZFa21iQld3N3BOS0xoYlxuLS0tLS1FTkQgUFJJVkFURSBLRVktLS0tLVxuIiwKICAiY2xpZW50X2VtYWlsIjogIjEwODQ1ODM5ODQ4NjAtY29tcHV0ZUBkZXZlbG9wZXIuZ3NlcnZpY2VhY2NvdW50LmNvbSIsCiAgImNsaWVudF9pZCI6ICIxMTQ4Njk4MjkwMzk2MjI5MDE5NDAiLAogICJhdXRoX3VyaSI6ICJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20vby9vYXV0aDIvYXV0aCIsCiAgInRva2VuX3VyaSI6ICJodHRwczovL29hdXRoMi5nb29nbGVhcGlzLmNvbS90b2tlbiIsCiAgImF1dGhfcHJvdmlkZXJfeDUwOV9jZXJ0X3VybCI6ICJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9vYXV0aDIvdjEvY2VydHMiLAogICJjbGllbnRfeDUwOV9jZXJ0X3VybCI6ICJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9yb2JvdC92MS9tZXRhZGF0YS94NTA5LzEwODQ1ODM5ODQ4NjAtY29tcHV0ZSU0MGRldmVsb3Blci5nc2VydmljZWFjY291bnQuY29tIiwKICAidW5pdmVyc2VfZG9tYWluIjogImdvb2dsZWFwaXMuY29tIgp9Cg==
 
 jobs:
   build:
@@ -40,26 +41,23 @@ jobs:
         docker build -t madhu1607/javagradle:latest .
         docker push madhu1607/javagradle:latest
 
-  deploy:
+  Deploy:
+    needs: build
     runs-on: ubuntu-latest
-
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-
-    - name: Set up Google Cloud SDK
-      uses: google-github-actions/setup-gcloud@v0.3.0
+    - uses: actions/checkout@master
+    - name: kubectl - Google Cloud GKE cluster.
+      uses: ameydev/gke-kubectl-action@master
+      env:
+        PROJECT_ID: modified-legacy-395815
+        APPLICATION_CREDENTIALS: ${{ env.GKE_KEY }}
+        CLUSTER_NAME: ${{ env.GKE_CLUSTER }}
+        ZONE_NAME: ${{ env.GKE_ZONE }}
       with:
-        service_account_key: ${{ secrets.GKE_KEY }}
-        project_id: modified-legacy-395815
+        args: |
+          apply -f deployment.yml
+          apply -f service.yml
 
-    - name: Configure kubectl
-      run: |
-        gcloud container clusters get-credentials ${{ env.GKE_CLUSTER }} --zone ${{ env.GKE_ZONE }}
-
-    - name: Apply Kubernetes Resources
-      run: |
-        kubectl apply -f deployment.yml -f service.yml
 
       
       
