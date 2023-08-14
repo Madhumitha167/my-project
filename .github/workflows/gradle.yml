@@ -39,23 +39,24 @@ jobs:
       run: |
         docker build -t madhu1607/javagradle:latest .
         docker push madhu1607/javagradle:latest
+
   Deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: kubectl - Google Cloud GKE cluster.
-      uses: ameydev/gke-kubectl-action@master
-      env:
-        PROJECT_ID: modified-legacy-395815
-        APPLICATION_CREDENTIALS: ${{ secrets.GKE_KEY }}
-        CLUSTER_NAME: ${{ env.GKE_CLUSTER }}
-        ZONE_NAME: ${{ env.GKE_ZONE }}
+    - name: Set up Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@v0.3.0
       with:
-        args: |
-          apply -f deployment.yml
-          apply -f service.yml
-        
+        service_account_key: ${{ secrets.GKE_KEY }}
+        project_id: modified-legacy-395815
+    - name: Configure gcloud and kubectl
+      run: |
+        gcloud container clusters get-credentials ${{ env.GKE_CLUSTER }} --zone ${{ env.GKE_ZONE }}
+    - name: Apply Kubernetes Resources
+      run: |
+        kubectl apply -f deployment.yml -f service.yml
+
       
       
       
