@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: javagradleapp
+  name: nginx-deployment
 spec:
-  replicas: 2
   selector:
     matchLabels:
-      app: javagradleapp
+      app: nginx
+  replicas: 2 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
-        app: javagradleapp
+        app: nginx
     spec:
       containers:
-        - name: java-container
-          image: madhu1607/javagradle:latest
-          ports:
-            - containerPort: 80
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
