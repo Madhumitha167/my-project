@@ -54,7 +54,7 @@ jobs:
         CLUSTER_NAME: ${{ env.GKE_CLUSTER }}
         ZONE_NAME: ${{ env.GKE_ZONE }}
       with:
-        args: kubectl apply -f deployment.yml -f service.yml
+        args: apply -f deployment.yml -f service.yml
           
 
 
